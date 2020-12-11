@@ -1,0 +1,21 @@
+apiVersion: jaegertracing.io/v1
+kind: Jaeger
+metadata:
+  name: jaeger
+  # crteate the actual jaeger in the 'tools' namespace (agent, collector, collector-headless, query)
+  namespace: tools
+spec:
+  strategy: production
+  ingress:
+    enabled: false
+  collector:
+    maxReplicas: 2 
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+  storage:
+    type: memory
+    options:
+      memory:
+        max-traces: 1000

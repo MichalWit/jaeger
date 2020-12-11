@@ -1,0 +1,5 @@
+apps/only-actuator/build
+apps/only-actuator/.gradle
+apps/spring-cloud-gateway/build
+apps/spring-cloud-gateway/.gradle
+target

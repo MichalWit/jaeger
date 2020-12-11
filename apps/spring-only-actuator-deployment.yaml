@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: actuator 
+  annotations:
+    sidecar.jaegertracing.io/inject: jaeger
+  namespace: apps
+  labels:
+    app: actuator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: actuator
+  template:
+    metadata:
+      labels:
+        app: actuator
+    spec:
+      containers:
+      - name: actuator
+        image: michalwit/spring-only-actuator:1.0
+        ports:
+        - containerPort: 8080
