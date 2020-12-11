@@ -22,10 +22,19 @@
 
 # Adding another service
 
+## 4./ apps
 1. create a regular deployment yaml file
 2. add an annotation to the deployment with value: `sidecar-jaegertracing.io/inject: <jaeger-name>` // it tells the operator to inject a sidecar container for the jaeger agent
 3. add `opentracing-spring-jaeger-web-starter` dependency 
 4. publish new tag image (`docker build . --tag michalwit/spring-only-actuator:1.0` and `docker image push michalwit/spring-only-actuator:1.0`)
 5. update deployment file with new image tag and redeploy in kubernetes
 6. port-forward to the gateway pod, and make a request(`kubectl port-forward -n apps gateway-788547d7d8-845lj 9999 9999` and curl localhost:9999/get`)
+
+## 5. /apps (expose a service, so that DNS can be levereged)
+1. use kubectl to create a service using spring-only-actuator-service.yaml file
+2. use `kubectl run` to create a busybox pod in the same namespace (apps) and use telent to check connection
+
+## 6. /apps (use spring-cloud-gateway:1.2 with routing to 'actuator' service)
+1. `kubectl delete -f'` , apply change to the version and then `kubectl create -f
+2. use port forwarding `kubectl port-forward -n apps <gateway-pod> 9999 9999` and `curl localhost:9999/routed` to see that the message commes from the 'actuator' service
 
