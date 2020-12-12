@@ -1,3 +1,5 @@
+apps/mediator/build
+apps/mediator/.gradle
 apps/only-actuator/build
 apps/only-actuator/.gradle
 apps/spring-cloud-gateway/build
