@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: gateway
-        image: michalwit/spring-cloud-gateway:1.3
+        image: michalwit/spring-cloud-gateway:1.4
         ports:
         - containerPort: 9999 

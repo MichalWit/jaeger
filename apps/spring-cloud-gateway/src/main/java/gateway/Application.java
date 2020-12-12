@@ -25,8 +25,20 @@ public class Application {
 		return builder.routes()
 			.route(p -> p
 				.path("/routed")
-				.filters(f -> f.addRequestHeader("X-Gateway", "custom-header").rewritePath("routed", "actuator"))
-				.uri("http://actuator:80"))
+				.filters(f -> f
+						.addRequestHeader("X-Gateway", "custom-header")
+						.rewritePath("routed", "actuator")
+				)
+				.uri("http://actuator:80")
+			)
+			.route(p -> p
+				.path("/mediator")
+				.filters(f -> f
+						.addRequestHeader("X-Gateway", "_custom_header_")
+						.rewritePath("mediator", "call-actuator-service")
+				)
+				.uri("http://mediator:80")
+			)
 			.build();
 	}
 
