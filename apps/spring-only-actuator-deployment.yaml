@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: actuator
-        image: michalwit/spring-only-actuator:1.0
+        image: michalwit/spring-only-actuator:1.3
         ports:
         - containerPort: 8080

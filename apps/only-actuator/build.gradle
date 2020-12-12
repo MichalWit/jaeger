@@ -13,16 +13,14 @@ repositories {
 }
 
 dependencies {
-	// tag::actuator[]
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	// end::actuator[]
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	// tag::tests[]
-        compile("io.opentracing.contrib:opentracing-spring-jaeger-web-starter:3.2.2")
+    compile("io.opentracing.contrib:opentracing-spring-jaeger-web-starter:3.2.2")
+	compile("com.google.guava:guava:30.0-jre")
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	// end::tests[]
 }
 
 test {
