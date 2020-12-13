@@ -12,11 +12,18 @@ repositories {
 	mavenCentral()
 }
 
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Greenwich.SR2"
+	}
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-    compile("io.opentracing.contrib:opentracing-spring-jaeger-web-starter:3.2.2")
 	compile("com.google.guava:guava:30.0-jre")
+
+	compile("org.springframework.cloud:spring-cloud-starter-zipkin")
 
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

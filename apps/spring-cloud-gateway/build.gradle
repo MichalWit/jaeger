@@ -37,7 +37,7 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-contract-stub-runner"){
         exclude group: "org.springframework.boot", module: "spring-boot-starter-web"
     }
-    compile("io.opentracing.contrib:opentracing-spring-jaeger-cloud-starter:3.2.2")
+    compile("org.springframework.cloud:spring-cloud-starter-zipkin")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
