@@ -10,4 +10,4 @@ management:
       exposure:
         include: "health,info,httptrace,env"
 
-actuator-service.host: "localhost:8080"
+actuator-service.host: "actuator"
